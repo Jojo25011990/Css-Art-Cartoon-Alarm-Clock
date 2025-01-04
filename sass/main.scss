@@ -1,0 +1,474 @@
+@forward "./reset.scss";
+
+html {
+	@media (max-width: 680px) {
+		font-size: 50%;
+	}
+
+	@media (max-width: 550px) {
+		font-size: 37%;
+	}
+}
+
+body {
+	background-color: #f1f1f1;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.clock {
+	// *** body ***
+	position: relative;
+	width: 50rem;
+	height: 50rem;
+	border-radius: 50%;
+
+	border: 3rem solid rgba(82, 171, 82, 0.7);
+
+	&__dots {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 50rem;
+		height: 50rem;
+		border-radius: 50%;
+
+		background-color: rgba(255, 255, 0, 0.096);
+	}
+
+	&__dot {
+		position: absolute;
+		width: 1.5rem;
+		height: 1.5rem;
+		background-color: rgba(121, 18, 18, 0.85);
+		border-radius: 50%;
+		border: 0.2rem solid rgba(82, 171, 82, 0.7);
+	}
+
+	&__dot:nth-child(1) {
+		top: 10%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-10%);
+		background-color: darken(rgba(82, 171, 82, 1), 5%);
+	}
+
+	&__dot:nth-child(2) {
+		bottom: 10%;
+		left: 50%;
+		transform: translate(-50%, 10%);
+		background-color: darken(rgba(82, 171, 82, 1), 5%);
+	}
+
+	&__dot:nth-child(3) {
+		top: 50%;
+		left: 10.5%;
+		transform: translate(-50%, -50%);
+		background-color: darken(rgba(82, 171, 82, 1), 5%);
+	}
+
+	&__dot:nth-child(4) {
+		top: 50%;
+		right: 10.5%;
+		transform: translate(50%, -50%);
+		background-color: darken(rgba(82, 171, 82, 1), 5%);
+	}
+
+	&__dot:nth-child(5) {
+		top: 25%;
+		left: 20%;
+		transform: translate(-50%, -50%);
+		background-color: darken(rgba(82, 171, 82, 1), 5%);
+	}
+
+	&__dot:nth-child(6) {
+		top: 25%;
+		right: 20%;
+		transform: translate(50%, -50%);
+		background-color: darken(rgba(82, 171, 82, 1), 5%);
+	}
+
+	&__dot:nth-child(7) {
+		bottom: 25%;
+		left: 20%;
+		transform: translate(-50%, 50%);
+		background-color: darken(rgba(82, 171, 82, 1), 5%);
+	}
+
+	&__dot:nth-child(8) {
+		bottom: 25%;
+		right: 20%;
+		transform: translate(50%, 50%);
+		background-color: darken(rgba(82, 171, 82, 1), 5%);
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+
+		background-color: rgba(82, 171, 82, 0.3);
+		border: 1rem solid rgba(82, 171, 82, 0.9);
+	}
+
+	&__border {
+		position: absolute;
+		top: -3rem;
+		left: -3rem;
+		width: 50rem;
+		height: 50rem;
+		border-radius: 50%;
+
+		border: 0.5rem solid rgba(121, 18, 18, 1);
+	}
+
+	// *** ears ***
+	&__left-ear {
+		height: 12.5rem;
+		width: 22.5rem;
+		background-color: rgba(82, 171, 82, 0.7);
+		border-top-left-radius: 15rem;
+		border-top-right-radius: 15rem;
+
+		position: absolute;
+		top: -7.7rem;
+		left: -9.1rem;
+		rotate: -40deg;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+
+			background-color: transparent;
+			border: 0.5rem solid;
+			border-color: rgb(121, 18, 18);
+			border-top-left-radius: 15rem;
+			border-top-right-radius: 15rem;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: -1rem;
+			left: 50%;
+			translate: -50% 0;
+			width: 1.9rem;
+			height: 1.55rem;
+			border-radius: 50%;
+			background-color: rgb(121, 18, 18);
+		}
+	}
+
+	&__right-ear {
+		height: 12.5rem;
+		width: 22.5rem;
+		background-color: rgba(82, 171, 82, 0.7);
+		border-top-left-radius: 15rem;
+		border-top-right-radius: 15rem;
+
+		position: absolute;
+		top: -7.7rem;
+		right: -9.1rem;
+		rotate: 40deg;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+
+			background-color: transparent;
+			border: 0.5rem solid;
+			border-color: rgb(121, 18, 18);
+			border-top-left-radius: 15rem;
+			border-top-right-radius: 15rem;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: -1rem;
+			left: 50%;
+			translate: -50% 0;
+			width: 1.9rem;
+			height: 1.55rem;
+			border-radius: 50%;
+			background-color: rgb(121, 18, 18);
+		}
+	}
+
+	// *** eyes ***
+
+	&__left-eye {
+		position: absolute;
+		top: 40%;
+		left: 20%;
+		translate: -20% -40%;
+		background-color: rgba(121, 18, 18, 0.85);
+		width: 10rem;
+		height: 10rem;
+		border-radius: 50%;
+		border: 0.5rem solid rgb(121, 18, 18);
+
+		&::before {
+			content: "";
+			position: absolute;
+			width: 2.5rem;
+			height: 2.5rem;
+			background-color: #f1f1f1;
+			top: 25%;
+			left: 25%;
+			translate: -25% -25%;
+			border-radius: 50%;
+		}
+	}
+
+	&__right-eye {
+		position: absolute;
+		top: 40%;
+		left: 65%;
+		translate: -20% -40%;
+		background-color: rgba(121, 18, 18, 0.85);
+		width: 10rem;
+		height: 10rem;
+		border-radius: 50%;
+		border: 0.5rem solid rgb(121, 18, 18);
+
+		animation: wink 0.25s ease-in-out 2;
+		animation-delay: 0.5s;
+
+		&::before {
+			content: "";
+			position: absolute;
+			width: 2.5rem;
+			height: 2.5rem;
+			background-color: #f1f1f1;
+			top: 25%;
+			left: 25%;
+			translate: -25% -25%;
+			border-radius: 50%;
+			transition: 1s;
+		}
+	}
+
+	// ***  mouth ***
+	&__mouth {
+		position: absolute;
+		bottom: 20%;
+		left: 50%;
+		translate: -50% -20%;
+		width: 12rem;
+		height: 5rem;
+		border: 3.5rem solid rgba(121, 18, 18, 0.85);
+		border-top: 0;
+		border-left: 0;
+		border-right: 0;
+		border-bottom-left-radius: 10rem;
+		border-bottom-right-radius: 10rem;
+
+		filter: drop-shadow(0.1rem 0.1rem 0.1rem rgb(121, 18, 18));
+
+		@media (max-width: 550px) {
+			border-top: 1px solid transparent; // *** Fix for rendering bug: a faint top border was visible on smaller screens. ***
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: -3.4rem;
+			left: 48%;
+			translate: -48% 0;
+			width: 1.2rem;
+			height: 0.5rem;
+			background-color: rgb(222, 33, 33);
+			border-radius: 50%;
+			rotate: -20deg;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: -3.4rem;
+			left: 51%;
+			translate: -51% 0;
+			width: 1.2rem;
+			height: 0.5rem;
+			background-color: rgb(222, 33, 33);
+			border-radius: 50%;
+			rotate: 20deg;
+		}
+	}
+
+	// *** hands ***
+	&__left-hand {
+		height: 10rem;
+		width: 5rem;
+		position: absolute;
+		top: 50%;
+		left: -8rem;
+		translate: 0% -50%;
+		rotate: -8deg;
+		z-index: -1;
+		border: 1.5rem solid rgb(121, 18, 18);
+		border-top: 0;
+		border-right: 0;
+		border-bottom-left-radius: 100%;
+		transition: 1s;
+
+		animation: wave 1s infinite;
+
+		&--1 {
+			height: 5rem;
+			width: 3rem;
+			position: absolute;
+			top: -4rem;
+			left: -1rem;
+			background-color: rgb(121, 18, 18);
+			border-radius: 70%;
+			rotate: 20deg;
+		}
+
+		&--2 {
+			height: 5.5rem;
+			width: 4rem;
+			position: absolute;
+			top: -4rem;
+			left: -3rem;
+			background-color: rgb(121, 18, 18);
+			border-radius: 70%;
+			rotate: -5deg;
+		}
+	}
+
+	&__right-hand {
+		height: 10rem;
+		width: 5rem;
+		position: absolute;
+		top: 71%;
+		right: -8.2rem;
+		transform: translate(0%, -71%) rotateX(188deg) rotate(9deg);
+		z-index: -1;
+		border: 1.5rem solid rgb(121, 18, 18);
+		border-top: 0;
+		border-left: 0;
+		border-bottom-right-radius: 100%;
+
+		&--1 {
+			height: 5rem;
+			width: 3rem;
+			position: absolute;
+			top: -4rem;
+			right: -1rem;
+			background-color: rgb(121, 18, 18);
+			border-radius: 70%;
+			transform: rotate(-20deg);
+		}
+
+		&--2 {
+			height: 5.5rem;
+			width: 4rem;
+			position: absolute;
+			top: -4rem;
+			right: -3rem;
+			background-color: rgb(121, 18, 18);
+			border-radius: 70%;
+			transform: rotate(5deg);
+		}
+	}
+
+	// *** legs ***
+	&__left-leg {
+		position: absolute;
+		height: 5rem;
+		width: 1.5rem;
+		background-color: rgba(121, 18, 18, 0.95);
+
+		bottom: -5.4rem;
+		left: 10rem;
+
+		transform: skew(-17deg);
+
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: -2.5rem;
+			left: -5rem;
+			width: 7rem;
+			height: 4.5rem;
+			background-color: rgba(121, 18, 18, 1);
+			border-radius: 60%;
+			transform: skewX(12deg) rotate(18deg);
+		}
+	}
+
+	&__right-leg {
+		position: absolute;
+		height: 5rem;
+		width: 1.5rem;
+		background-color: rgba(121, 18, 18, 0.95);
+
+		bottom: -5.4rem;
+		right: 10rem;
+
+		transform: skew(17deg);
+
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: -2.5rem;
+			right: -5rem;
+			width: 7rem;
+			height: 4.5rem;
+			background-color: rgba(121, 18, 18, 1);
+			border-radius: 60%;
+			transform: skewX(-12deg) rotate(-18deg);
+		}
+	}
+}
+
+// *** eye wink ***
+
+@keyframes wink {
+	0%,
+	100% {
+		height: 10rem;
+		border-radius: 50%;
+	}
+	50% {
+		height: 2rem;
+		border-radius: 50% / 100%;
+	}
+}
+
+// *** wave ***
+@keyframes wave {
+	0%,
+	100% {
+		rotate: -8deg;
+	}
+
+	25% {
+		rotate: -7deg;
+	}
+
+	50% {
+		rotate: -8deg;
+	}
+
+	75% {
+		rotate: -7deg;
+	}
+}
